@@ -73,15 +73,15 @@
       <file leaf-file-name="EchoApplication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/bot/spring/echo/EchoApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3">
-              <caret line="74" column="34" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
+            <state relative-caret-position="206">
+              <caret line="86" column="74" selection-start-line="86" selection-start-column="74" selection-end-line="86" selection-end-column="74" />
               <folding>
-                <element signature="e#0#3429#0" expanded="true" />
+                <element signature="e#0#3687#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#1838#1839#0" expanded="true" />
-                <element signature="e#1904#1905#0" expanded="true" />
-                <element signature="e#2488#2489#0" expanded="true" />
-                <element signature="e#2541#2542#0" expanded="true" />
+                <element signature="e#1895#1896#0" expanded="true" />
+                <element signature="e#1961#1962#0" expanded="true" />
+                <element signature="e#2744#2745#0" expanded="true" />
+                <element signature="e#2797#2798#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1043,14 +1043,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.linecorp.bot/line-bot-model/1.5.0/28d29aceb7020024f2b2707a7275bb1f65d2198d/line-bot-model-1.5.0-sources.jar!/com/linecorp/bot/model/event/message/TextMessageContent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.linecorp.bot/line-bot-model/1.5.0/4edec3cb81fe43bc77c008ffcc06ef04de730fde/line-bot-model-1.5.0.jar!/com/linecorp/bot/model/event/MessageEvent.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -1075,26 +1067,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.linecorp.bot/line-bot-model/1.5.0/28d29aceb7020024f2b2707a7275bb1f65d2198d/line-bot-model-1.5.0-sources.jar!/com/linecorp/bot/model/event/source/Source.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.linecorp.bot/line-bot-model/1.5.0/28d29aceb7020024f2b2707a7275bb1f65d2198d/line-bot-model-1.5.0-sources.jar!/com/linecorp/bot/model/event/Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.linecorp.bot/line-bot-model/1.5.0/28d29aceb7020024f2b2707a7275bb1f65d2198d/line-bot-model-1.5.0-sources.jar!/com/linecorp/bot/model/PushMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1123,17 +1099,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.linecorp.bot/line-bot-model/1.5.0/28d29aceb7020024f2b2707a7275bb1f65d2198d/line-bot-model-1.5.0-sources.jar!/com/linecorp/bot/model/event/message/MessageContent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.linecorp.bot/line-bot-model/1.5.0/28d29aceb7020024f2b2707a7275bb1f65d2198d/line-bot-model-1.5.0-sources.jar!/com/linecorp/bot/model/event/message/TextMessageContent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.linecorp.bot/line-bot-model/1.5.0/28d29aceb7020024f2b2707a7275bb1f65d2198d/line-bot-model-1.5.0-sources.jar!/com/linecorp/bot/model/PushMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.linecorp.bot/line-bot-model/1.5.0/28d29aceb7020024f2b2707a7275bb1f65d2198d/line-bot-model-1.5.0-sources.jar!/com/linecorp/bot/model/event/source/Source.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/bot/spring/echo/EchoApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="74" column="34" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
+        <state relative-caret-position="206">
+          <caret line="86" column="74" selection-start-line="86" selection-start-column="74" selection-end-line="86" selection-end-column="74" />
           <folding>
-            <element signature="e#0#3429#0" expanded="true" />
+            <element signature="e#0#3687#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#1838#1839#0" expanded="true" />
-            <element signature="e#1904#1905#0" expanded="true" />
-            <element signature="e#2488#2489#0" expanded="true" />
-            <element signature="e#2541#2542#0" expanded="true" />
+            <element signature="e#1895#1896#0" expanded="true" />
+            <element signature="e#1961#1962#0" expanded="true" />
+            <element signature="e#2744#2745#0" expanded="true" />
+            <element signature="e#2797#2798#0" expanded="true" />
           </folding>
         </state>
       </provider>

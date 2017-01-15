@@ -17,6 +17,7 @@
 package com.example.bot.spring.echo;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.linecorp.bot.client.LineMessagingServiceBuilder;
 import com.linecorp.bot.model.PushMessage;
 import com.linecorp.bot.model.event.source.Source;
@@ -37,13 +38,14 @@ import retrofit2.Response;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootApplication
 @LineMessageHandler
 @EnableScheduling
 public class EchoApplication {
 
-    public List<Source> sources = Lists.newLinkedList();
+    private Set<Source> sources = Sets.newHashSet();
 
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
@@ -55,9 +57,12 @@ public class EchoApplication {
 
         if(event.getMessage().getText().startsWith("@")) {
             return new TextMessage(event.getMessage().getText());
-        } else if(event.getMessage().getText().contentEquals("#")) {
+        } else if(event.getMessage().getText().contentEquals("##등록")) {
             sources.add(event.getSource());
             return new TextMessage("Source를 등록하였습니다: " + event.getSource());
+        } else if(event.getMessage().getText().contentEquals("##해제")) {
+            sources.remove(event.getSource());
+            return new TextMessage("Source를 해제하였습니다: " + event.getSource());
         }
 
         return null;
@@ -79,7 +84,7 @@ public class EchoApplication {
 
         for(Source source : sources) {
             TextMessage textMessage = new TextMessage("hi");
-            PushMessage pushMessage = new PushMessage(source.getUserId(), textMessage);
+            PushMessage pushMessage = new PushMessage(source.getSenderId(), textMessage);
 
             try {
                 Response<BotApiResponse> response =
