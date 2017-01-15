@@ -1,1 +1,1 @@
-web: java -Dserver.port=10023 -jar build/libs/lunchbot-1.0-SNAPSHOT.jar
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar build/libs/lunchbot-1.0-SNAPSHOT.jar
