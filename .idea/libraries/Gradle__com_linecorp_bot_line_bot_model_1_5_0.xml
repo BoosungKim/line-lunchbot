@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.linecorp.bot:line-bot-model:1.5.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.linecorp.bot/line-bot-model/1.5.0/4edec3cb81fe43bc77c008ffcc06ef04de730fde/line-bot-model-1.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.linecorp.bot/line-bot-model/1.5.0/28d29aceb7020024f2b2707a7275bb1f65d2198d/line-bot-model-1.5.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
