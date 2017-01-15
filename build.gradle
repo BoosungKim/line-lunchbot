@@ -3,8 +3,6 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
-
 repositories {
     mavenCentral()
 }
@@ -13,3 +11,6 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile group: 'com.linecorp.bot', name: 'line-bot-spring-boot', version: '1.5.0'
 }
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
