@@ -21,6 +21,7 @@ import com.linecorp.bot.client.LineMessagingServiceBuilder;
 import com.linecorp.bot.model.PushMessage;
 import com.linecorp.bot.model.event.source.Source;
 import com.linecorp.bot.model.response.BotApiResponse;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -67,6 +68,9 @@ public class EchoApplication {
         System.out.println("event: " + event);
     }
 
+    @Value("${channel.token}")
+    private String channelToken;
+
     @Scheduled(fixedRate = 5000)
     public void scheduledEvent() {
         if(sources.isEmpty()) {
@@ -80,7 +84,7 @@ public class EchoApplication {
             try {
                 Response<BotApiResponse> response =
                         LineMessagingServiceBuilder
-                                .create(System.getProperty("line.bot.channelToken"))
+                                .create(channelToken)
                                 .build()
                                 .pushMessage(pushMessage)
                                 .execute();
