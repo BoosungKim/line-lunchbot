@@ -16,6 +16,11 @@
 
 package com.example.bot.spring.echo;
 
+import com.google.common.collect.Lists;
+import com.linecorp.bot.client.LineMessagingServiceBuilder;
+import com.linecorp.bot.model.PushMessage;
+import com.linecorp.bot.model.event.source.Source;
+import com.linecorp.bot.model.response.BotApiResponse;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -27,11 +32,18 @@ import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import retrofit2.Response;
+
+import java.io.IOException;
+import java.util.List;
 
 @SpringBootApplication
 @LineMessageHandler
 @EnableScheduling
 public class EchoApplication {
+
+    public List<Source> sources = Lists.newLinkedList();
+
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
     }
@@ -42,6 +54,9 @@ public class EchoApplication {
 
         if(event.getMessage().getText().startsWith("@")) {
             return new TextMessage(event.getMessage().getText());
+        } else if(event.getMessage().getText().contentEquals("#")) {
+            sources.add(event.getSource());
+            return new TextMessage("Source를 등록하였습니다: " + event.getSource());
         }
 
         return null;
@@ -53,8 +68,28 @@ public class EchoApplication {
     }
 
     @Scheduled(fixedRate = 5000)
-    public TextMessage scheduledEvent() {
+    public void scheduledEvent() {
         System.out.println("Scheduled Event");
-        return new TextMessage("Scheduled");
+        if(sources.isEmpty()) {
+            return;
+        }
+
+        for(Source source : sources) {
+            TextMessage textMessage = new TextMessage("hi");
+            PushMessage pushMessage = new PushMessage(source.getUserId(), textMessage);
+
+            try {
+                Response<BotApiResponse> response =
+                        LineMessagingServiceBuilder
+                                .create(System.getProperty("LINE_BOT_CHANNEL_TOKEN"))
+                                .build()
+                                .pushMessage(pushMessage)
+                                .execute();
+
+                System.out.println("Send push to " + source);
+            } catch(IOException e) {
+                System.out.println(e.toString());
+            }
+        }
     }
 }
