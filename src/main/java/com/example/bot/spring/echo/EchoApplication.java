@@ -25,6 +25,7 @@ import com.linecorp.bot.model.event.message.TextMessageContent;
 import com.linecorp.bot.model.message.TextMessage;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
+import org.springframework.scheduling.annotation.Scheduled;
 
 @SpringBootApplication
 @LineMessageHandler
@@ -47,5 +48,11 @@ public class EchoApplication {
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
+    }
+
+    @Scheduled(fixedRate = 5000)
+    public TextMessage scheduledEvent() {
+        System.out.println("Scheduled Event");
+        return new TextMessage("Scheduled");
     }
 }
