@@ -69,7 +69,6 @@ public class EchoApplication {
 
     @Scheduled(fixedRate = 5000)
     public void scheduledEvent() {
-        System.out.println("Scheduled Event");
         if(sources.isEmpty()) {
             return;
         }
@@ -81,7 +80,7 @@ public class EchoApplication {
             try {
                 Response<BotApiResponse> response =
                         LineMessagingServiceBuilder
-                                .create(System.getProperty("LINE_BOT_CHANNEL_TOKEN"))
+                                .create(System.getProperty("line.bot.channelToken"))
                                 .build()
                                 .pushMessage(pushMessage)
                                 .execute();
