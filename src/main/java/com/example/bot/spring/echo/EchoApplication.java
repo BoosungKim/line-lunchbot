@@ -75,10 +75,7 @@ public class EchoApplication {
 
     @Value("${channel.token}")
     private String channelToken;
-
-    @Value("${schedule.pattern}")
-    private String cronPattern;
-
+    
     @Scheduled(cron = "0 0 8-10 * * MON-FRI")
     public void scheduledEvent() {
         if(sources.isEmpty()) {
