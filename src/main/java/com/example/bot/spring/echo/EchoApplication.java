@@ -76,14 +76,17 @@ public class EchoApplication {
     @Value("${channel.token}")
     private String channelToken;
 
-    @Scheduled(fixedRate = 5000)
+    @Value("${schedule.pattern}")
+    private String cronPattern;
+
+    @Scheduled(cron = "0 0 8-10 * * MON-FRI")
     public void scheduledEvent() {
         if(sources.isEmpty()) {
             return;
         }
 
         for(Source source : sources) {
-            TextMessage textMessage = new TextMessage("hi");
+            TextMessage textMessage = new TextMessage("Test message: 점심 봇입니다. 빠셍!");
             PushMessage pushMessage = new PushMessage(source.getSenderId(), textMessage);
 
             try {
