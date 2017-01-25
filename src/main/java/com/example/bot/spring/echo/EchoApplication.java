@@ -55,8 +55,7 @@ public class EchoApplication {
 
     @EventMapping
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
-        System.out.println("event: " + event);
-
+        
         // 부성: 여기는 리펙토링이 매우 필요합니다.
         if(event.getMessage().getText().startsWith("@")) {
             return new TextMessage("이제 Echo 안할거임");
