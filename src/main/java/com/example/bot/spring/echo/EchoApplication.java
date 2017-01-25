@@ -84,7 +84,7 @@ public class EchoApplication {
     @Value("${channel.token}")
     private String channelToken;
     
-    @Scheduled(cron = "0 */1 15 * * *", zone = "KST")
+    @Scheduled(cron = "0 */1 15 * * *", zone = "ROK")
     public void scheduledEvent() {
         if(sources.isEmpty()) {
             return;
