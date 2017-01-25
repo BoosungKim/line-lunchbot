@@ -87,14 +87,14 @@ public class EchoApplication {
     @Value("${channel.token}")
     private String channelToken;
     
-    @Scheduled(cron = "*/5 * * * * WED", zone = "ROK")
+    @Scheduled(cron = "0 0 10-11 * * WED", zone = "ROK")
     public void scheduledEvent() {
         if(sources.isEmpty()) {
             return;
         }
 
         for(Source source : sources) {
-            TextMessage textMessage = new TextMessage("Test message: 점심 봇입니다. 빠셍!");
+            TextMessage textMessage = new TextMessage("오늘은 다함께 점심 먹는 날입니다. 이따가 보아요. 빠셍!");
             PushMessage pushMessage = new PushMessage(source.getSenderId(), textMessage);
 
             try {
