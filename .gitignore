@@ -1,2 +1,5 @@
 build/
 logs/
+.gradle/
+.idea/
+out/
