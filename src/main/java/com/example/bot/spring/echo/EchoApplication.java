@@ -70,7 +70,7 @@ public class EchoApplication {
                 sb.append(source).append('\n');
             }
             return new TextMessage(sb.toString());
-            
+
         } else {
             return null;
         }
@@ -84,7 +84,7 @@ public class EchoApplication {
     @Value("${channel.token}")
     private String channelToken;
     
-    @Scheduled(cron = "*/10 * * * * *")
+    @Scheduled(cron = "0 */1 15 * * *", zone = "KST")
     public void scheduledEvent() {
         if(sources.isEmpty()) {
             return;
