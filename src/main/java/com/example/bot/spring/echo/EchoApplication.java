@@ -81,7 +81,6 @@ public class EchoApplication {
 
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
-        System.out.println("event: " + event);
     }
 
     @Value("${channel.token}")
