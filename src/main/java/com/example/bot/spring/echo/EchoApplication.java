@@ -34,6 +34,8 @@ import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.util.StringUtils;
+
 import retrofit2.Response;
 
 import java.io.IOException;
@@ -55,15 +57,16 @@ public class EchoApplication {
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         System.out.println("event: " + event);
 
+        // 부성: 여기는 리펙토링이 매우 필요합니다.
         if(event.getMessage().getText().startsWith("@")) {
-            return new TextMessage(event.getMessage().getText());
-        } else if(event.getMessage().getText().contentEquals("#등록")) {
+            return new TextMessage("이제 Echo 안할거임");
+        } else if(event.getMessage().getText().contentEquals("#점심봇등록")) {
             sources.add(event.getSource());
             return new TextMessage("Source를 등록하였습니다: " + event.getSource());
-        } else if(event.getMessage().getText().contentEquals("#해제")) {
+        } else if(event.getMessage().getText().contentEquals("#점심봇해제")) {
             sources.remove(event.getSource());
             return new TextMessage("Source를 해제하였습니다: " + event.getSource());
-        } else if(event.getMessage().getText().contentEquals("#목록")) {
+        } else if(event.getMessage().getText().contentEquals("#점심봇목록")) {
             StringBuilder sb = new StringBuilder("목록: \n");
 
             for(Source source : sources) {
@@ -84,7 +87,7 @@ public class EchoApplication {
     @Value("${channel.token}")
     private String channelToken;
     
-    @Scheduled(cron = "0 */1 15 * * *", zone = "ROK")
+    @Scheduled(cron = "*/5 * * * * WED", zone = "ROK")
     public void scheduledEvent() {
         if(sources.isEmpty()) {
             return;
