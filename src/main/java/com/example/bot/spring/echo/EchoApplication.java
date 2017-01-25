@@ -63,9 +63,17 @@ public class EchoApplication {
         } else if(event.getMessage().getText().contentEquals("#해제")) {
             sources.remove(event.getSource());
             return new TextMessage("Source를 해제하였습니다: " + event.getSource());
-        }
+        } else if(event.getMessage().getText().contentEquals("#목록")) {
+            StringBuilder sb = new StringBuilder("목록: \n");
 
-        return null;
+            for(Source source : sources) {
+                sb.append(source).append('\n');
+            }
+            return new TextMessage(sb.toString());
+            
+        } else {
+            return null;
+        }
     }
 
     @EventMapping
@@ -76,7 +84,7 @@ public class EchoApplication {
     @Value("${channel.token}")
     private String channelToken;
     
-    @Scheduled(cron = "5 0 0 * * *")
+    @Scheduled(cron = "*/10 * * * * *")
     public void scheduledEvent() {
         if(sources.isEmpty()) {
             return;
