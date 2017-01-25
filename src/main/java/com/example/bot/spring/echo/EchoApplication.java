@@ -57,10 +57,10 @@ public class EchoApplication {
 
         if(event.getMessage().getText().startsWith("@")) {
             return new TextMessage(event.getMessage().getText());
-        } else if(event.getMessage().getText().contentEquals("##등록")) {
+        } else if(event.getMessage().getText().contentEquals("#등록")) {
             sources.add(event.getSource());
             return new TextMessage("Source를 등록하였습니다: " + event.getSource());
-        } else if(event.getMessage().getText().contentEquals("##해제")) {
+        } else if(event.getMessage().getText().contentEquals("#해제")) {
             sources.remove(event.getSource());
             return new TextMessage("Source를 해제하였습니다: " + event.getSource());
         }
@@ -76,7 +76,7 @@ public class EchoApplication {
     @Value("${channel.token}")
     private String channelToken;
     
-    @Scheduled(cron = "0 0 8-10 * * MON-FRI")
+    @Scheduled(cron = "5 0 0 * * *")
     public void scheduledEvent() {
         if(sources.isEmpty()) {
             return;
