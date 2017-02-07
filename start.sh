@@ -1,1 +1,0 @@
-java -Dline.bot.channelToken=uejBrJnhmZprA7j1+q5J1NzOOzyosoattW/YpOl1udhyiNibcPkj6TZ05hk1retf7KCmSBmrefrhQBC8JsCnqNv5/1fr9gMBWjjU1ILcs78/CSvvPk0dJkpBbxyu8TCwz4hj/MCyolUBT0qCOyNuyAdB04t89/1O/w1cDnyilFU= -Dline.bot.channelSecret=248650c602c01013012dd65f578dee79 -jar build/libs/lunchbot-1.0-SNAPSHOT.jar
