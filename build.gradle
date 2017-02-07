@@ -14,6 +14,7 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile group: 'com.linecorp.bot', name: 'line-bot-spring-boot', version: '1.5.0'
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
 }
 
 task stage(dependsOn: ['build', 'clean'])
