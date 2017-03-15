@@ -38,8 +38,8 @@ public class LineMessageController {
 
     @EventMapping
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
-        // 부성: 여기는 리펙토링이 매우 필요합니다.
 
+        // 부성: 여기는 리펙토링이 매우 필요합니다.
         String message = event.getMessage().getText();
         StringBuilder sb = new StringBuilder();
 
@@ -48,6 +48,7 @@ public class LineMessageController {
 
             Jedis jedis = jedisPool.getResource();
             Long res = jedis.sadd("bot", senderId);
+            jedis.close();
 
             if(res == 1) {
                 sb.append("Source를 등록하였습니다: " + senderId);
@@ -60,6 +61,7 @@ public class LineMessageController {
 
             Jedis jedis = jedisPool.getResource();
             Long res = jedis.srem("bot", senderId);
+            jedis.close();
 
             if(res == 1) {
                 sb.append("Source를 해제하였습니다: " + senderId);
@@ -72,15 +74,19 @@ public class LineMessageController {
 
             Jedis jedis = jedisPool.getResource();
             Set<String> sources = jedis.smembers("bot");
+            jedis.close();
+
             for(String source : sources) {
                 sb.append(source + '\n');
             }
 
         } else if(message.contentEquals("#그렇지?")) {
             sb.append("응!");
-        } else if(message.contentEquals("#욕해줘")) {
+
+        } else if(message.contains("#욕해줘")) {
             Jedis jedis = jedisPool.getResource();
             Set<String> yokSet = jedis.smembers("yok");
+            jedis.close();
 
             List<String> yokList = new ArrayList(yokSet);
             Collections.shuffle(yokList);
@@ -92,11 +98,20 @@ public class LineMessageController {
 
             Jedis jedis = jedisPool.getResource();
             Long res = jedis.sadd("yok", yok);
+            jedis.close();
 
             if(res == 1) {
                 sb.append("런치봇이 욕을 장착하였습니다: " + yok);
             } else {
                 sb.append("욕 같은 거 안해!");
+            }
+        } else if(message.contentEquals("#욕목록")) {
+            Jedis jedis = jedisPool.getResource();
+            Set<String> yokSet = jedis.smembers("yok");
+            jedis.close();
+
+            for(String yok : yokSet) {
+                sb.append(yok + '\n');
             }
         }
 
