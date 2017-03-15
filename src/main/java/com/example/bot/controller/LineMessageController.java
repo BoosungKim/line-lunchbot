@@ -105,6 +105,14 @@ public class LineMessageController {
             } else {
                 sb.append("욕 같은 거 안해!");
             }
+        } else if(message.contentEquals("#욕목록")) {
+            Jedis jedis = jedisPool.getResource();
+            Set<String> yokSet = jedis.smembers("yok");
+            jedis.close();
+
+            for(String yok : yokSet) {
+                sb.append(yok + '\n');
+            }
         }
 
         return new TextMessage(sb.toString());
