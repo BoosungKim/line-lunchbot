@@ -22,8 +22,12 @@ public class MessageService {
 		StringBuilder sb = new StringBuilder();
 		String action = messageEvent.getMessage().getText();
 		String senderId = messageEvent.getSource().getSenderId();
+		if (action.contains("한테") && action.contains("#욕해줘")) {
+			String target = tokenizeTarget(action.substring(0, action.indexOf("한테")));
+			sb.append(target + " ");
+			sb.append(redisRepository.getRandomYOK());
 
-		if (action.contentEquals("#점심봇등록")) {
+		} else if (action.contentEquals("#점심봇등록")) {
 
 			sb.append(redisRepository.registLunchbot(senderId));
 
@@ -55,4 +59,14 @@ public class MessageService {
 		return new TextMessage(sb.toString());
 	}
 
+	private String tokenizeTarget(String target) {
+
+		String[] splitResult = target.split(" ");
+		String lastString = splitResult[splitResult.length - 1];
+		if (lastString.equals("나")) {
+			return "너";
+		} else {
+			return lastString;
+		}
+	}
 }
