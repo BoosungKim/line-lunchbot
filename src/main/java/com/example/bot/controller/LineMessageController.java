@@ -32,8 +32,6 @@ import java.util.Set;
 @EnableScheduling
 public class LineMessageController {
 
-
-
     @Autowired
     private MessageService messageService;
 
@@ -53,7 +51,7 @@ public class LineMessageController {
         messageService.lunchScheduler();
     }
 
-    @Scheduled(cron = "0 0 * * *", zone = "ROK")
+    @Scheduled(cron = "0 0 12 * * *", zone = "ROK")
     public void birthdayScheduler() {
         messageService.birthdayScheduler();
     }
